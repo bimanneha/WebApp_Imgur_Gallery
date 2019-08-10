@@ -1,19 +1,30 @@
-<div class="image-content">
-  <p *ngIf="imagesData && imagesData.length > 0">
+<div>
+
+  <!--Shows Radio Buttons for Including / Excluding Viral Images-->
+  <app-radio [parentName]="'Gallery'" [radioOptions]="radioOptions" (optionChange)="filterViral($event)"></app-radio>
+
+  <!--Popularity and Window and Sort filters-->
+  <app-image-filter (emitFilteredDataToGallery)="refreshGalleryData($event)"></app-image-filter>
+
+  <div class="image-content" *ngIf="imagesData && imagesData.length > 0">
+
     <a target="_self" [href]="eachImage.link" *ngFor="let eachImage of imagesData; let i = index;">
+
       <ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
 
-        <img *ngIf="eachImage.images[0].type.includes('image')" [src]="eachImage.images[0].link" class="bor-rad"/>
+        <ng-container *ngIf="eachImage.images[0].type.includes('image')">
+          <img [src]="eachImage.images[0].link" class="bor-rad"/>
+        </ng-container>
 
-        <div *ngIf="eachImage.images[0].type.includes('video')">
-          <video width="200" height="200" autoplay>
+        <ng-container *ngIf="eachImage.images[0].type.includes('video')">
+          <video width="240" height="200" autoplay>
             <source [src]="eachImage.images[0].link" type="video/mp4">
           </video>
-        </div>
+        </ng-container>
 
       </ng-container>
 
       <!--<span *ngIf="eachImage.title !== null">{{eachImage.title}}</span>-->
     </a>
-  </p>
+  </div>
 </div>

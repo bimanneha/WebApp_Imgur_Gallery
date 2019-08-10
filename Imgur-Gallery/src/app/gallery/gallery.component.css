@@ -1,7 +1,7 @@
 
 .image-content {
-  margin-left: 150px;
-  margin-top: 65px;
+  width: 65%;
+  margin-left: 420px;
   margin-right: 40px;
   color: ghostwhite;
   border: 1px ridge gray;
@@ -22,10 +22,11 @@ img {
   width: 150px;
   margin: 10px;
   border: 1px ridge slategray;
+  vertical-align: top;
 }
 
 .bor-rad {
   border-radius: 6px;
-  width: 150px;
+  width: 240px;
   height: 150px;
 }
