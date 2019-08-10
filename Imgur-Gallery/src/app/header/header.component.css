@@ -1,0 +1,70 @@
+.div-container {
+  padding: 0px;
+}
+
+.center-x {
+  margin: auto;
+}
+
+h2 {
+  font-weight: bolder;
+}
+
+.bk-color {
+  background-color: #3c3c3c;
+  margin-bottom: 0px;
+  border-radius: 2px;
+}
+
+.bor {
+  border: 1px ridge #6a6a6a;
+  height: 5%;
+}
+
+.fr-color {
+  color: lightgrey;
+  font-family: "PT Sans Narrow","PT Sans", "Arial Narrow", Verdana, Geneva, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.fr-color-title {
+  color: ghostwhite;
+  font-family: Proxima Nova ExtraBold,Helvetica Neue,Helvetica,Arial,sans-serif;
+  letter-spacing: .6px;
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.image-content {
+  margin-left: 150px;
+  margin-top: 65px;
+  margin-right: 40px;
+  color: ghostwhite;
+  border: 1px ridge gray;
+  border-radius: 2px;
+}
+
+img:hover {
+  opacity: 0.7;
+  /*content: url(../../images/plus_icon.PNG);*/
+}
+
+img:hover:after {
+  opacity: 0.5;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+  border: 1px ridge slategray;
+}
+
+.bor-rad {
+  border-radius: 6px;
+  width: 150px;
+  height: 150px;
+}

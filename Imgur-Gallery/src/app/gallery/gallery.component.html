@@ -1,0 +1,19 @@
+<div class="image-content">
+  <p *ngIf="imagesData && imagesData.length > 0">
+    <a target="_self" [href]="eachImage.link" *ngFor="let eachImage of imagesData; let i = index;">
+      <ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
+
+        <img *ngIf="eachImage.images[0].type.includes('image')" [src]="eachImage.images[0].link" class="bor-rad"/>
+
+        <div *ngIf="eachImage.images[0].type.includes('video')">
+          <video width="200" height="200" autoplay>
+            <source [src]="eachImage.images[0].link" type="video/mp4">
+          </video>
+        </div>
+
+      </ng-container>
+
+      <!--<span *ngIf="eachImage.title !== null">{{eachImage.title}}</span>-->
+    </a>
+  </p>
+</div>
