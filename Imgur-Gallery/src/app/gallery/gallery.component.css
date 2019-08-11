@@ -1,10 +1,17 @@
 
 .image-content {
-  width: 65%;
-  margin-left: 420px;
+  width: 75%;
+  margin-left: 320px;
   margin-right: 40px;
   color: ghostwhite;
   border: 1px ridge gray;
+  border-radius: 2px;
+}
+
+.post-container {
+  margin: 5px;
+  display: inline-block;
+  border: 1px groove gray;
   border-radius: 2px;
 }
 
@@ -29,4 +36,12 @@ img {
   border-radius: 6px;
   width: 240px;
   height: 150px;
+}
+
+.caption {
+  /*display: inline-block;*/
+  max-width: 240px;
+  text-align: center;
+  font-size: small;
+  color: ghostwhite;
 }

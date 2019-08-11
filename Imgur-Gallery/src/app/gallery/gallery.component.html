@@ -8,23 +8,27 @@
 
   <div class="image-content" *ngIf="imagesData && imagesData.length > 0">
 
-    <a target="_self" [href]="eachImage.link" *ngFor="let eachImage of imagesData; let i = index;">
+    <div class="post-container" *ngFor="let eachImage of imagesData; let i = index;">
+      <a target="_self" [href]="eachImage.link">
 
-      <ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
+        <figure *ngIf="eachImage.images && eachImage.images.length > 0">
 
-        <ng-container *ngIf="eachImage.images[0].type.includes('image')">
-          <img [src]="eachImage.images[0].link" class="bor-rad"/>
-        </ng-container>
+          <ng-container *ngIf="eachImage.images[0].type.includes('image')">
+            <img [src]="eachImage.images[0].link" class="bor-rad"/>
+          </ng-container>
 
-        <ng-container *ngIf="eachImage.images[0].type.includes('video')">
-          <video width="240" height="200" autoplay>
-            <source [src]="eachImage.images[0].link" type="video/mp4">
-          </video>
-        </ng-container>
+          <ng-container *ngIf="eachImage.images[0].type.includes('video')">
+            <video width="240" height="200" autoplay>
+              <source [src]="eachImage.images[0].link" type="video/mp4">
+            </video>
+          </ng-container>
 
-      </ng-container>
+          <figcaption class="caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
 
-      <!--<span *ngIf="eachImage.title !== null">{{eachImage.title}}</span>-->
-    </a>
+        </figure>
+
+      </a>
+    </div>
+
   </div>
 </div>
