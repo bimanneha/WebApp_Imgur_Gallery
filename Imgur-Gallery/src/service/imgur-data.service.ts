@@ -11,7 +11,7 @@ const getImages = apiPrefix + galleryPath;
   providedIn: 'root'
 })
 
-export class AccountDataService {
+export class ImgurDataService {
 
   constructor(private http: HttpClient) {
   }

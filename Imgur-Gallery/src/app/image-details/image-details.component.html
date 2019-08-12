@@ -10,7 +10,7 @@
       <ng-container *ngIf="imageDetails !== null">
 
         <ng-container *ngIf="imageDetails.imageType.includes('image')">
-          <img class="col-md-12" [id]="imageDetails.id" [src]="imageDetails.link"/>
+          <img class="col-md-12" [id]="imageDetails.id" [alt]="imageDetails.id" [src]="imageDetails.link"/>
         </ng-container>
 
         <ng-container *ngIf="imageDetails.imageType.includes('video')">
@@ -26,11 +26,13 @@
 
     <!--  Image Meta Data-->
     <div class="col-md-5">
-      <table class="table table-bordered custom-table">
+      <table class="table table-bordered table-dark table-striped custom-table">
 
         <thead>
-        <th class="th-parameter">Parameter</th>
-        <th class="th-value">Value</th>
+        <tr>
+          <th class="th-parameter">Parameter</th>
+          <th class="th-value">Value</th>
+        </tr>
         </thead>
 
         <tbody>
@@ -59,6 +61,13 @@
       </table>
 
     </div>
+
   </div>
 
+  <app-buttons [isMainPage]="false"
+               (backToTopClicked)="backToTop()"></app-buttons>
+
 </div>
+
+<!--Footer Component including Copyright Message-->
+<app-footer></app-footer>

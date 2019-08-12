@@ -27,7 +27,8 @@
 
   </div>
 
-  <app-buttons [filterParamObject]="filterParamObject"
+  <app-buttons [isMainPage]="true"
+                [filterParamObject]="filterParamObject"
                (backToTopClicked)="backToTop()"
                (loadMoreClicked)="loadMoreImages($event)"></app-buttons>
 

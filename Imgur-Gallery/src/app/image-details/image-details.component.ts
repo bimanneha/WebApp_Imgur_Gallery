@@ -52,4 +52,8 @@ export class ImageDetailsComponent implements OnInit {
     return this.imageDetails;
   }
 
+  backToTop() {
+    window.scroll(0, 0);
+  }
+
 }

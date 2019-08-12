@@ -12,16 +12,19 @@
 }
 
 .radio-font {
-  color: #891b55;
+  color: ghostwhite;
   font-size: 16px;
 }
 
 .select-width {
   width: 95%;
+  background-color: #6a6a6a;
+  color: ghostwhite;
 }
 
-.select-font {
-  color: #891b55;
+.select-font, option {
+  background-color: #6a6a6a;
+  color: ghostwhite;
 }
 
 

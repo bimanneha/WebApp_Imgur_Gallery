@@ -1,20 +1,28 @@
+<ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
+  <a target="_self" [routerLink]="['/imageDetails', eachImage.id]">
 
-<a target="_self" [routerLink]="['/imageDetails', eachImage.id]">
+    <figure class="bg-custom">
 
-  <figure class="bg-custom" *ngIf="eachImage.images && eachImage.images.length > 0">
-
-    <ng-container *ngIf="eachImage.images[0].type.includes('image')">
+      <ng-container *ngIf="eachImage.images[0].type.includes('image')">
         <img [id]="eachImage.id" class="img-responsive" [alt]="eachImage.id" [src]="eachImage.images[0].link"/>
-    </ng-container>
+      </ng-container>
 
-    <ng-container *ngIf="eachImage.images[0].type.includes('video')">
-      <video [id]="eachImage.id" width="240" height="200" autoplay controls [loop]="true" [muted]="isMute">
-        <source [src]="eachImage.images[0].link" type="video/mp4">
-      </video>
-    </ng-container>
+      <ng-container *ngIf="eachImage.images[0].type.includes('video')">
+        <video [id]="eachImage.id" width="240" height="200" autoplay controls [loop]="true" [muted]="isMute">
+          <source [src]="eachImage.images[0].link" type="video/mp4">
+        </video>
+      </ng-container>
 
-    <figcaption class="caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
+      <figcaption class="caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
 
-  </figure>
+      <br/>
 
-</a>
+    </figure>
+
+  </a>
+
+  <p>Ups : {{eachImage.ups || 0}}</p>
+  <p>Downs : {{eachImage.downs || 0}}</p>
+  <p>Scores : {{eachImage.score || 0}}</p>
+</ng-container>
+

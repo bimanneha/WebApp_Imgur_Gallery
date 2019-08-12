@@ -10,6 +10,9 @@ export class ButtonsComponent {
   @Input()
   filterParamObject: any;
 
+  @Input()
+  isMainPage: boolean;
+
   @Output()
   backToTopClicked = new EventEmitter();
 

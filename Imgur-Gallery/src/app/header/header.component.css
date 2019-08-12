@@ -11,9 +11,11 @@ h2 {
 }
 
 .bk-color {
-  background-color: #891b55;
+  background-color: #2d2d2d;
+  background-image: -webkit-linear-gradient(top, #3d3d3d,#272727);
   padding: 35px;
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .bor {
