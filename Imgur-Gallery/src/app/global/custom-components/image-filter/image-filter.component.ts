@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AccountDataService} from "../../../../service/account-data.service";
 import {cloneDeep} from 'lodash';
 
@@ -9,17 +9,15 @@ import {cloneDeep} from 'lodash';
 })
 export class ImageFilterComponent implements OnInit {
 
-  radioOptions: any[] = ['Hot', 'Top', 'User'];
-  dropDownOptionsForWindow: any[] = ['Day', 'Week', 'Month', 'Year', 'All'];
-  dropDownOptionsForSort: any[] = ['Viral', 'Top', 'Time', 'Rising'];
+  radioOptions: any[] = ['hot', 'top', 'user'];
+  dropDownOptionsForWindow: any[] = ['day', 'week', 'month', 'year', 'all'];
+  dropDownOptionsForSort: any[] = ['viral', 'top', 'time', 'rising'];
 
   apiData;
   imagesData: any[];
 
-  sectionType = 'hot';
-  sortType = 'viral';
-  windowType = 'day';
-  pageCount = 0;
+  @Input()
+  filterParamObject: any[];
 
   @Output()
   emitFilteredDataToGallery = new EventEmitter();
@@ -30,25 +28,22 @@ export class ImageFilterComponent implements OnInit {
   }
 
   filterBasedOnSection(event) {
-    console.log('event', event);
-    this.sectionType = event;
+    this.filterParamObject['sectionType'] = event;
+    this.getImagesBasedOnFilterParams();
   }
 
   filterBasedOnWindow(event) {
-    console.log('event', event);
-    this.windowType = event;
-    this.accountDataService.getAllFilteredImages(this.sectionType, this.sortType, this.windowType, this.pageCount)
-      .subscribe(imagesDataFromAPI => {
-        this.apiData = cloneDeep(imagesDataFromAPI);
-        this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];
-        this.emitDataToGallery();
-      });
+    this.filterParamObject['windowType'] = event;
+    this.getImagesBasedOnFilterParams();
   }
 
   filterBasedOnSort(event) {
-    console.log('event', event);
-    this.sortType = event;
-    this.accountDataService.getAllFilteredImages(this.sectionType, this.sortType, this.windowType, this.pageCount)
+    this.filterParamObject['sortType'] = event;
+    this.getImagesBasedOnFilterParams();
+  }
+
+  getImagesBasedOnFilterParams() {
+    this.accountDataService.getAllFilteredImages(this.filterParamObject['sectionType'], this.filterParamObject['sortType'], this.filterParamObject['windowType'], this.filterParamObject['pageCount'])
       .subscribe(imagesDataFromAPI => {
         this.apiData = cloneDeep(imagesDataFromAPI);
         this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];

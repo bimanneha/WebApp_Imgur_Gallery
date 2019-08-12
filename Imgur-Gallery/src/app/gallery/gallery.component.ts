@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {cloneDeep} from 'lodash';
 import {AccountDataService} from "../../service/account-data.service";
-import {GalleryParameters, RADIO} from '../../enums/gallery-parameters';
 
 @Component({
   selector: 'app-gallery',
@@ -10,15 +9,15 @@ import {GalleryParameters, RADIO} from '../../enums/gallery-parameters';
 })
 export class GalleryComponent implements OnInit {
 
-  apiData;
+  apiData: any;
   imagesData: any[];
-  galleryParameters: GalleryParameters;
+  isMute: boolean = true;
   radioOptions: any[] = ['Include Viral', 'Exclude Viral'];
 
-  constructor(private accountDataService: AccountDataService) {
-    this.galleryParameters = new GalleryParameters();
+  @Input()
+  filterParamObject: any[];
 
-  }
+  constructor(private accountDataService: AccountDataService) { }
 
   ngOnInit() {
     this.accountDataService.apiGetAllImages()
@@ -29,16 +28,16 @@ export class GalleryComponent implements OnInit {
   }
 
   filterViral(event) {
-    console.log('event', event);
-
     const isViral = event;
 
     this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
-    console.log('this.imagesData', this.imagesData);
   }
 
   refreshGalleryData(newData){
     this.imagesData = cloneDeep(newData);
-    console.log('this.imagesData', this.imagesData);
+  }
+
+  toggleMute(isMute) {
+    this.isMute = !isMute;
   }
 }

@@ -3,10 +3,10 @@
   <div>
     <div class="form-group">
       <label [for]="'drop-down-' + parentName" class="select-font">Select {{parentName}}</label>
+
       <select class="form-control select-width" [id]="'drop-down-' + parentName" [(ngModel)]="filterParameter" (change)="getFilteredImages()" >
         <option *ngFor="let eachOption of dropDownOptions; let idx = index;"
-                [value]="eachOption"
-                [selected]="((eachOption === 'Viral' && parentName === 'Sort') || (eachOption === 'Day' && parentName === 'Window'))">{{eachOption}}
+                [value]="eachOption">{{eachOption}}
         </option>
       </select>
     </div>

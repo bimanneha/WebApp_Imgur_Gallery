@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 const getUserImages = 'https://api.imgur.com/3/account/me/images';
-const getAllImages = 'https://api.imgur.com/3/gallery/hot/time/day/0?showViral=true&mature=true&album_previews=true';
+const getAllImages = 'https://api.imgur.com/3/gallery/hot/viral/0';
+const getAllWindowFilteredImages = 'https://api.imgur.com/3/gallery/';
+const getAnImage = 'https://api.imgur.com/3/gallery/';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +12,22 @@ const getAllImages = 'https://api.imgur.com/3/gallery/hot/time/day/0?showViral=t
 
 export class AccountDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   setBearerHeader(headers: HttpHeaders) {
-    return headers.append('Authorization', 'Bearer ' + 'XXX');
+    return headers.append('Authorization', 'Bearer ' + 'XXXXX');
   }
 
   setClientIdHeader(headers: HttpHeaders) {
-    return headers.append('Authorization', 'Client-ID ' + 'XXX');
+    return headers.append('Authorization', 'Client-ID ' + 'XXXXX');
   }
 
   apiGetUserImages() {
-      let headers = new HttpHeaders();
-      headers = this.setBearerHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.setBearerHeader(headers);
 
-      return this.http.get(getUserImages, {headers});
+    return this.http.get(getUserImages, {headers});
   }
 
   apiGetAllImages() {
@@ -32,5 +35,20 @@ export class AccountDataService {
     headers = this.setClientIdHeader(headers);
 
     return this.http.get(getAllImages, {headers});
+  }
+
+  getAllFilteredImages(sectionType, sortType, windowType, pageCount) {
+    let headers = new HttpHeaders();
+    headers = this.setClientIdHeader(headers);
+    const filterString = sectionType + '/' + sortType + '/' + windowType + '/' + pageCount;
+
+    return this.http.get(getAllWindowFilteredImages + filterString, {headers});
+  }
+
+  getImageDetails(imageId) {
+    let headers = new HttpHeaders();
+    headers = this.setClientIdHeader(headers);
+
+    return this.http.get(getAnImage + imageId, {headers});
   }
 }

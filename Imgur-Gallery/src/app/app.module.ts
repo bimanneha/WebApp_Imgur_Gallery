@@ -10,15 +10,21 @@ import { RadioComponent } from './global/custom-components/input-groups/radio/ra
 import { ImageFilterComponent } from './global/custom-components/image-filter/image-filter.component';
 import { DropDownComponent } from './global/custom-components/input-groups/drop-down/drop-down.component';
 import {FormsModule} from "@angular/forms";
+import { ImageDetailsComponent } from './image-details/image-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeaderComponent,
     GalleryComponent,
     RadioComponent,
     ImageFilterComponent,
-    DropDownComponent
+    DropDownComponent,
+    ImageDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+.custom-container {
+  padding-left: 20px;
+  margin-left: 30px;
+  color: #6a6a6a;
+  vertical-align: middle;
+}
+
+.div-content {
+  padding: 40px 0 40px 40px;
+}
+
+.div-table {
+  padding: 40px 0 40px 40px;
+  }
+
+.custom-table {
+  text-align: center;
+}
+
+.th-parameter {
+  width: 30%;
+}
+
+.th-value {
+  width: 70%;
+}

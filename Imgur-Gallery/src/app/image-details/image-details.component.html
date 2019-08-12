@@ -1,0 +1,64 @@
+<!--Header Component including Logo and Name-->
+<app-header></app-header>
+
+<!--Single Image Data-->
+<div class="container custom-container">
+
+  <div class="row">
+    <!--  Image Content-->
+    <div class="div-content col-md-7">
+      <ng-container *ngIf="imageDetails !== null">
+
+        <ng-container *ngIf="imageDetails.imageType.includes('image')">
+          <img [id]="imageDetails.id" [src]="imageDetails.link" width="600" height="600"/>
+        </ng-container>
+
+        <ng-container *ngIf="imageDetails.imageType.includes('video')">
+
+          <video [id]="imageDetails.id" autoplay controls [loop]="true" [muted]="isMute" width="500" height="500">
+            <source [src]="imageDetails.link" type="video/mp4">
+          </video>
+
+        </ng-container>
+
+      </ng-container>
+    </div>
+
+    <!--  Image Meta Data-->
+    <div class="div-table col-md-5">
+      <table class="table table-bordered table-dark table-striped custom-table">
+
+        <thead>
+        <th class="th-parameter">Parameter</th>
+        <th class="th-value">Value</th>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Title</td>
+          <td>{{imageDetails.title || '' }}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>{{imageDetails.description || '' }}</td>
+        </tr>
+        <tr>
+          <td>Up Votes</td>
+          <td>{{imageDetails.ups || '' }}</td>
+        </tr>
+        <tr>
+          <td>Down Votes</td>
+          <td>{{imageDetails.downs || '' }}</td>
+        </tr>
+        <tr>
+          <td>Score</td>
+          <td>{{imageDetails.score || '' }}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</div>

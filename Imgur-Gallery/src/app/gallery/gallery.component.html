@@ -4,21 +4,21 @@
   <app-radio [parentName]="'Gallery'" [radioOptions]="radioOptions" (optionChange)="filterViral($event)"></app-radio>
 
   <!--Popularity and Window and Sort filters-->
-  <app-image-filter (emitFilteredDataToGallery)="refreshGalleryData($event)"></app-image-filter>
+  <app-image-filter [filterParamObject]="filterParamObject" (emitFilteredDataToGallery)="refreshGalleryData($event)"></app-image-filter>
 
   <div class="image-content" *ngIf="imagesData && imagesData.length > 0">
 
     <div class="post-container" *ngFor="let eachImage of imagesData; let i = index;">
-      <a target="_self" [href]="eachImage.link">
 
+      <a target="_self" [routerLink]="['/imageDetails', eachImage.id]">
         <figure *ngIf="eachImage.images && eachImage.images.length > 0">
 
           <ng-container *ngIf="eachImage.images[0].type.includes('image')">
-            <img [src]="eachImage.images[0].link" class="bor-rad"/>
+            <img [id]="eachImage.id" [src]="eachImage.images[0].link" class="bor-rad"/>
           </ng-container>
 
           <ng-container *ngIf="eachImage.images[0].type.includes('video')">
-            <video width="240" height="200" autoplay>
+            <video [id]="eachImage.id" width="240" height="200" autoplay controls [loop]="true" [muted]="isMute">
               <source [src]="eachImage.images[0].link" type="video/mp4">
             </video>
           </ng-container>
