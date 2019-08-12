@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderComponent {
 
   title = 'IMAGE GALLERY';
-  subTitle = 'This is a simple web app';
+  subTitle = 'This is a simple web app.';
 
   constructor() { }
 

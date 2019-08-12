@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
   styleUrls: ['./drop-down.component.css']
 })
-export class DropDownComponent implements OnInit {
+export class DropDownComponent {
 
   @Input()
   filterParameter: string;
@@ -27,11 +27,9 @@ export class DropDownComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
   getFilteredImages() {
-    (this.parentName === 'Window') ? this.windowTypeChange.emit(this.filterParameter) : this.sortTypeChange.emit(this.filterParameter);
+    (this.parentName === 'Window') ? this.windowTypeChange.emit(this.filterParameter)
+                                   : this.sortTypeChange.emit(this.filterParameter);
   }
 
 }

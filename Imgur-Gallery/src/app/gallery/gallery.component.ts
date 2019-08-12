@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {cloneDeep} from 'lodash';
-import {AccountDataService} from "../../service/account-data.service";
+import {ImgurDataService} from "../../service/imgur-data.service";
 
 @Component({
   selector: 'app-gallery',
@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
   @Input()
   filterParamObject: any[];
 
-  constructor(private accountDataService: AccountDataService) { }
+  constructor(private accountDataService: ImgurDataService) { }
 
   ngOnInit() {
     this.accountDataService.apiGetAllImages()

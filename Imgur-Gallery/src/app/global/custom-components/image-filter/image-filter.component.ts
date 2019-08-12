@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AccountDataService} from "../../../../service/account-data.service";
+import {ImgurDataService} from "../../../../service/imgur-data.service";
 import {cloneDeep} from 'lodash';
 
 @Component({
@@ -22,7 +22,7 @@ export class ImageFilterComponent implements OnInit {
   @Output()
   emitFilteredDataToGallery = new EventEmitter();
 
-  constructor(private accountDataService: AccountDataService) { }
+  constructor(private accountDataService: ImgurDataService) { }
 
   ngOnInit() {
   }

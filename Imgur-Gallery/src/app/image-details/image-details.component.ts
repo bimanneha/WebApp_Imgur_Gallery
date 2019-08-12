@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AccountDataService} from "../../service/account-data.service";
+import {Component, OnInit} from '@angular/core';
+import {ImgurDataService} from "../../service/imgur-data.service";
 import {cloneDeep} from 'lodash';
 import {ImageData} from "../../model/image-data";
 import {ActivatedRoute} from "@angular/router";
@@ -16,7 +16,7 @@ export class ImageDetailsComponent implements OnInit {
   imageDetails: ImageData = new ImageData();
   isMute: boolean = true;
 
-  constructor(private accountDataService: AccountDataService, private activatedRoute: ActivatedRoute) {
+  constructor(private accountDataService: ImgurDataService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

@@ -1,11 +1,11 @@
-import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-radio',
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.css']
 })
-export class RadioComponent implements OnInit {
+export class RadioComponent {
 
   @Input()
   radioOptions: any[];
@@ -20,9 +20,6 @@ export class RadioComponent implements OnInit {
   filterTypeChange = new EventEmitter();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   funcExcludeViral(viralBoolean) {
     const isViral = viralBoolean;

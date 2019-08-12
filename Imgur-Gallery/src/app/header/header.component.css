@@ -1,5 +1,5 @@
 .div-container {
-  padding: 0px;
+  padding: 0;
 }
 
 .center-x {
@@ -12,7 +12,7 @@ h2 {
 
 .bk-color {
   background-color: #3c3c3c;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border-radius: 2px;
 }
 
