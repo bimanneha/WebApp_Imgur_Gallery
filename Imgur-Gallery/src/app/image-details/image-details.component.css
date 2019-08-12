@@ -1,20 +1,20 @@
+.bg-custom {
+  background-color: darkgray;
+}
+
 .custom-container {
-  padding-left: 20px;
-  margin-left: 30px;
+  padding-left: 30px;
   color: #6a6a6a;
   vertical-align: middle;
 }
 
 .div-content {
-  padding: 40px 0 40px 40px;
+  padding: 20px;
 }
-
-.div-table {
-  padding: 40px 0 40px 40px;
-  }
 
 .custom-table {
   text-align: center;
+  background-color: cadetblue;
 }
 
 .th-parameter {
@@ -23,4 +23,8 @@
 
 .th-value {
   width: 70%;
+}
+
+img {
+  margin: auto;
 }

@@ -2,20 +2,20 @@
 <app-header></app-header>
 
 <!--Single Image Data-->
-<div class="container custom-container">
+<div class="container-fluid custom-container">
 
   <div class="row">
     <!--  Image Content-->
-    <div class="div-content col-md-7">
+    <div class="div-content col-md-7 card bg-custom">
       <ng-container *ngIf="imageDetails !== null">
 
         <ng-container *ngIf="imageDetails.imageType.includes('image')">
-          <img [id]="imageDetails.id" [src]="imageDetails.link" width="600" height="600"/>
+          <img class="col-md-12" [id]="imageDetails.id" [src]="imageDetails.link"/>
         </ng-container>
 
         <ng-container *ngIf="imageDetails.imageType.includes('video')">
 
-          <video [id]="imageDetails.id" autoplay controls [loop]="true" [muted]="isMute" width="500" height="500">
+          <video class="col-md-12" [id]="imageDetails.id" autoplay controls [loop]="true" [muted]="isMute">
             <source [src]="imageDetails.link" type="video/mp4">
           </video>
 
@@ -25,8 +25,8 @@
     </div>
 
     <!--  Image Meta Data-->
-    <div class="div-table col-md-5">
-      <table class="table table-bordered table-dark table-striped custom-table">
+    <div class="col-md-5">
+      <table class="table table-bordered custom-table">
 
         <thead>
         <th class="th-parameter">Parameter</th>

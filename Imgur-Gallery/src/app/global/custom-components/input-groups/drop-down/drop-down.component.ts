@@ -28,8 +28,7 @@ export class DropDownComponent {
   constructor() { }
 
   getFilteredImages() {
-    (this.parentName === 'Window') ? this.windowTypeChange.emit(this.filterParameter)
-                                   : this.sortTypeChange.emit(this.filterParameter);
+    (this.parentName === 'Window') ? this.windowTypeChange.emit(this.filterParameter) : this.sortTypeChange.emit(this.filterParameter);
   }
 
 }

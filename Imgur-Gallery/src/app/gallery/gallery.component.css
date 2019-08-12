@@ -1,11 +1,5 @@
-
-.image-content {
-  width: 75%;
-  margin-left: 320px;
-  margin-right: 40px;
-  color: ghostwhite;
-  border: 1px ridge gray;
-  border-radius: 2px;
+.custom-container {
+  margin-top: 30px;
 }
 
 .post-container {
@@ -13,35 +7,4 @@
   display: inline-block;
   border: 1px groove gray;
   border-radius: 2px;
-}
-
-img:hover {
-  opacity: 0.7;
-  /*content: url(../../images/plus_icon.PNG);*/
-}
-
-img:hover:after {
-  opacity: 0.5;
-}
-
-img {
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  border: 1px ridge slategray;
-  vertical-align: top;
-}
-
-.bor-rad {
-  border-radius: 6px;
-  width: 240px;
-  height: 150px;
-}
-
-.caption {
-  /*display: inline-block;*/
-  max-width: 240px;
-  text-align: center;
-  font-size: small;
-  color: ghostwhite;
 }

@@ -1,7 +1,3 @@
-.div-container {
-  margin: auto;
-  text-align: center;
-}
 
 .radio-label {
   margin: 20px;
@@ -12,8 +8,12 @@
 }
 
 .radio-font {
-  color: ghostwhite;
+  color: #891b55;
   font-size: 16px;
+}
+
+.form-check {
+  padding-left: 0;
 }
 
 

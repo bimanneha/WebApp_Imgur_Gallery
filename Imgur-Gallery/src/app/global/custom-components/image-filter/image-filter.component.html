@@ -1,20 +1,36 @@
-<div class="bor">
+<div>
 
   <div class="image-filter-container">
 
-    <!--Shows Radio Buttons for filtering Images based on 'Hot', 'Top' and 'User'-->
-    <app-radio [parentName]="'ImgFilter'" [radioOptions]="radioOptions" (filterTypeChange)="filterBasedOnSection($event)"></app-radio>
+    <!--Shows Radio Buttons for Including / Excluding Viral Images-->
+    <app-radio [parentName]="'Gallery'" [radioOptions]="radioOptionsForViral" (optionChange)="filterViral($event)"></app-radio>
 
   </div>
 
   <div class="image-filter-container">
 
-    <!--Shows Drop Down for filtering Images based on 'Window' and 'Sort' parameters-->
-    <app-drop-down [parentName]="'Window'" [filterParameter]="filterParamObject['windowType']" [dropDownOptions]="dropDownOptionsForWindow" (windowTypeChange)="filterBasedOnWindow($event)"></app-drop-down>
+    <!--Shows Radio Buttons for filtering Images based on Sections: 'Hot', 'Top' and 'User'-->
+    <app-radio [parentName]="'ImgFilter'" [radioOptions]="radioOptionsForSection" (filterTypeChange)="filterBasedOnSection($event)"></app-radio>
+
+  </div>
+
+  <div class="image-filter-container">
 
     <br />
 
-    <app-drop-down [parentName]="'Sort'" [filterParameter]="filterParamObject['sortType']" [dropDownOptions]="dropDownOptionsForSort" (sortTypeChange)="filterBasedOnSort($event)"></app-drop-down>
+    <!--Shows Drop Down for filtering Images based on 'Window' parameters-->
+    <app-drop-down [parentName]="'Window'"
+                   [filterParameter]="filterParamObject['windowType']"
+                   [dropDownOptions]="dropDownOptionsForWindow"
+                   (windowTypeChange)="filterBasedOnWindow($event)"></app-drop-down>
+
+    <br />
+
+    <!--Shows Drop Down for filtering Images based on 'Sort' parameters-->
+    <app-drop-down [parentName]="'Sort'"
+                   [filterParameter]="filterParamObject['sortType']"
+                   [dropDownOptions]="dropDownOptionsForSort"
+                   (sortTypeChange)="filterBasedOnSort($event)"></app-drop-down>
 
   </div>
 

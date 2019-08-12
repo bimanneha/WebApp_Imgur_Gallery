@@ -11,7 +11,7 @@
               [(ngModel)]="filterParameter"
               (change)="getFilteredImages()">
 
-        <option *ngFor="let eachOption of dropDownOptions; let idx = index;" [value]="eachOption">
+        <option *ngFor="let eachOption of dropDownOptions" [value]="eachOption">
           {{eachOption}}
         </option>
 

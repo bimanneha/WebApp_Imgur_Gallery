@@ -11,11 +11,9 @@ export class GalleryComponent implements OnInit {
 
   apiData: any;
   imagesData: any[];
-  isMute: boolean = true;
-  radioOptions: any[] = ['Include Viral', 'Exclude Viral'];
 
   @Input()
-  filterParamObject: any[];
+  filterParamObject: any;
 
   constructor(private accountDataService: ImgurDataService) { }
 
@@ -27,17 +25,11 @@ export class GalleryComponent implements OnInit {
       });
   }
 
-  filterViral(event) {
-    const isViral = event;
-
-    this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
-  }
-
   refreshGalleryData(newData){
     this.imagesData = cloneDeep(newData);
   }
 
-  toggleMute(isMute) {
-    this.isMute = !isMute;
+  backToTop() {
+
   }
 }

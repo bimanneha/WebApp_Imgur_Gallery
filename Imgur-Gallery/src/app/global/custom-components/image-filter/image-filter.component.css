@@ -1,12 +1,4 @@
 .image-filter-container {
-  width:95%;
   border: 1px ridge #3c3c3c;
   margin: 20px 10px;
-}
-
-.bor {
-  border: 1px ridge #3c3c3c;
-  width:20%;
-  float: left;
-  height: 60%;
 }

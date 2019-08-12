@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   filterParamObject = {
-    'sectionType': 'hot',
-    'sortType': 'viral',
-    'windowType': 'day',
+    'sectionType': 'Hot',
+    'sortType': 'Viral',
+    'windowType': 'Day',
     'pageCount': 0
   };
 

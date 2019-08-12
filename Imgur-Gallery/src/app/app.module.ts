@@ -13,6 +13,8 @@ import {FormsModule} from "@angular/forms";
 import { ImageDetailsComponent } from './image-details/image-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import {EachCardComponent} from "./global/custom-components/each-card/each-card.component";
+import { ButtonsComponent } from './global/custom-components/buttons/buttons.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HomeComponent } from './home/home.component';
     ImageFilterComponent,
     DropDownComponent,
     ImageDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EachCardComponent,
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,

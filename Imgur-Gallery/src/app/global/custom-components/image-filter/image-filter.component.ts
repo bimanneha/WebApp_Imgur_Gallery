@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ImgurDataService} from "../../../../service/imgur-data.service";
-import {cloneDeep} from 'lodash';
+import {cloneDeep, lowerCase} from 'lodash';
+import {UtilityService} from "../../../../utils/utility-service";
 
 @Component({
   selector: 'app-image-filter',
@@ -9,9 +10,10 @@ import {cloneDeep} from 'lodash';
 })
 export class ImageFilterComponent implements OnInit {
 
-  radioOptions: any[] = ['hot', 'top', 'user'];
-  dropDownOptionsForWindow: any[] = ['day', 'week', 'month', 'year', 'all'];
-  dropDownOptionsForSort: any[] = ['viral', 'top', 'time', 'rising'];
+  radioOptionsForViral: any[] = ['Viral', 'Not Viral'];
+  radioOptionsForSection: any[] = ['Hot', 'Top', 'User'];
+  dropDownOptionsForWindow: any[] = ['Day', 'Week', 'Month', 'Year', 'All'];
+  dropDownOptionsForSort: any[] = ['Viral', 'Top', 'Time', 'Rising'];
 
   apiData;
   imagesData: any[];
@@ -22,7 +24,7 @@ export class ImageFilterComponent implements OnInit {
   @Output()
   emitFilteredDataToGallery = new EventEmitter();
 
-  constructor(private accountDataService: ImgurDataService) { }
+  constructor(private accountDataService: ImgurDataService, private utilityService: UtilityService) { }
 
   ngOnInit() {
   }
@@ -43,7 +45,9 @@ export class ImageFilterComponent implements OnInit {
   }
 
   getImagesBasedOnFilterParams() {
-    this.accountDataService.getAllFilteredImages(this.filterParamObject['sectionType'], this.filterParamObject['sortType'], this.filterParamObject['windowType'], this.filterParamObject['pageCount'])
+    let newFilterParamObject = this.utilityService.convertToLowerCase(this.filterParamObject);
+
+    this.accountDataService.getAllFilteredImages(newFilterParamObject)
       .subscribe(imagesDataFromAPI => {
         this.apiData = cloneDeep(imagesDataFromAPI);
         this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];
@@ -53,5 +57,10 @@ export class ImageFilterComponent implements OnInit {
 
   emitDataToGallery() {
     this.emitFilteredDataToGallery.emit(this.imagesData);
+  }
+
+  filterViral(event) {
+    const isViral = lowerCase(event);
+    this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
   }
 }

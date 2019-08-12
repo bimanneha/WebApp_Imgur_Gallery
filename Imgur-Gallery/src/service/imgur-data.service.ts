@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
-const getUserImages = 'https://api.imgur.com/3/account/me/images';
 const getAllImages = 'https://api.imgur.com/3/gallery/hot/viral/0';
 const getAllWindowFilteredImages = 'https://api.imgur.com/3/gallery/';
 const getAnImage = 'https://api.imgur.com/3/gallery/';
@@ -15,19 +14,8 @@ export class AccountDataService {
   constructor(private http: HttpClient) {
   }
 
-  setBearerHeader(headers: HttpHeaders) {
-    return headers.append('Authorization', 'Bearer ' + 'XXXXX');
-  }
-
   setClientIdHeader(headers: HttpHeaders) {
-    return headers.append('Authorization', 'Client-ID ' + 'XXXXX');
-  }
-
-  apiGetUserImages() {
-    let headers = new HttpHeaders();
-    headers = this.setBearerHeader(headers);
-
-    return this.http.get(getUserImages, {headers});
+    return headers.append('Authorization', 'Client-ID ' + 'b2dd06590440a49');
   }
 
   apiGetAllImages() {
@@ -37,10 +25,10 @@ export class AccountDataService {
     return this.http.get(getAllImages, {headers});
   }
 
-  getAllFilteredImages(sectionType, sortType, windowType, pageCount) {
+  getAllFilteredImages(newfilterParamObject) {
     let headers = new HttpHeaders();
     headers = this.setClientIdHeader(headers);
-    const filterString = sectionType + '/' + sortType + '/' + windowType + '/' + pageCount;
+    const filterString = newfilterParamObject['sectionType'] + '/' + newfilterParamObject['sortType'] + '/' + newfilterParamObject['windowType'] + '/' + newfilterParamObject['pageCount'];
 
     return this.http.get(getAllWindowFilteredImages + filterString, {headers});
   }

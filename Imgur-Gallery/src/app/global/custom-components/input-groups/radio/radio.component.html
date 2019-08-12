@@ -1,9 +1,9 @@
-<div class="form-check div-container">
+<div class="form-check">
 
   <ng-container *ngIf="parentName === 'Gallery'">
     <div class="form-check-inline">
       <label class="form-check-label radio-label" *ngFor="let eachOption of radioOptions; let idx = index;">
-        <input type="radio" class="form-check-input radio-margin" [checked]="(idx === 0)"
+        <input type="radio" class="form-check-input" [checked]="(idx === 0)"
                (click)="funcExcludeViral((idx === 0))" name="Gallery" [title]="eachOption"/>
         <span class="radio-font">{{eachOption}}</span>
       </label>
@@ -13,7 +13,7 @@
   <ng-container *ngIf="parentName === 'ImgFilter'">
     <div class="form-check-inline">
       <label class="form-check-label radio-label" *ngFor="let eachOption of radioOptions; let idx = index;">
-        <input type="radio" class="form-check-input radio-margin radio-font" [checked]="(idx === 0)"
+        <input type="radio" class="form-check-input radio-font" [checked]="(idx === 0)"
                (click)="funcFilterImages(eachOption)" name="Imgfilter" [title]="eachOption"/>
         <span class="radio-font">{{eachOption}}</span><br/>
       </label>
