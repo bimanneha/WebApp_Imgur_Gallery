@@ -9,22 +9,26 @@
       </app-image-filter>
     </div>
 
-    <!--Image and Video Cards-->
+    <!--Image and Video Blocks-->
     <div class="col-md-9">
 
       <ng-container *ngIf="imagesData && imagesData.length > 0">
 
         <div class="post-container" *ngFor="let eachImage of imagesData">
 
-          <app-each-card [eachImage]="eachImage" [filterParamObject]="filterParamObject"></app-each-card>
+          <app-each-card [eachImage]="eachImage"
+                         [filterParamObject]="filterParamObject"></app-each-card>
 
         </div>
 
       </ng-container>
+
     </div>
 
   </div>
 
-  <app-buttons (buttonClicked)="backToTop()"></app-buttons>
+  <app-buttons [filterParamObject]="filterParamObject"
+               (backToTopClicked)="backToTop()"
+               (loadMoreClicked)="loadMoreImages($event)"></app-buttons>
 
 </div>

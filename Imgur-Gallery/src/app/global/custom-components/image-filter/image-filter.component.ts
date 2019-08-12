@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ImgurDataService} from "../../../../service/imgur-data.service";
 import {cloneDeep, lowerCase} from 'lodash';
 import {UtilityService} from "../../../../utils/utility-service";
@@ -8,7 +8,7 @@ import {UtilityService} from "../../../../utils/utility-service";
   templateUrl: './image-filter.component.html',
   styleUrls: ['./image-filter.component.css']
 })
-export class ImageFilterComponent implements OnInit {
+export class ImageFilterComponent {
 
   radioOptionsForViral: any[] = ['Viral', 'Not Viral'];
   radioOptionsForSection: any[] = ['Hot', 'Top', 'User'];
@@ -24,10 +24,7 @@ export class ImageFilterComponent implements OnInit {
   @Output()
   emitFilteredDataToGallery = new EventEmitter();
 
-  constructor(private accountDataService: ImgurDataService, private utilityService: UtilityService) { }
-
-  ngOnInit() {
-  }
+  constructor(private accountDataService: ImgurDataService) { }
 
   filterBasedOnSection(event) {
     this.filterParamObject['sectionType'] = event;
@@ -45,7 +42,7 @@ export class ImageFilterComponent implements OnInit {
   }
 
   getImagesBasedOnFilterParams() {
-    let newFilterParamObject = this.utilityService.convertToLowerCase(this.filterParamObject);
+    let newFilterParamObject = UtilityService.convertToLowerCase(this.filterParamObject);
 
     this.accountDataService.getAllFilteredImages(newFilterParamObject)
       .subscribe(imagesDataFromAPI => {
@@ -61,6 +58,7 @@ export class ImageFilterComponent implements OnInit {
 
   filterViral(event) {
     const isViral = lowerCase(event);
+
     this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
   }
 }

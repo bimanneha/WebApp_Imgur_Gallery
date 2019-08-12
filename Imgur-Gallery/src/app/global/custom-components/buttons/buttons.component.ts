@@ -1,21 +1,29 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css']
 })
-export class ButtonsComponent implements OnInit {
+export class ButtonsComponent {
+
+  @Input()
+  filterParamObject: any;
 
   @Output()
-  buttonClicked = new EventEmitter();
+  backToTopClicked = new EventEmitter();
+
+  @Output()
+  loadMoreClicked = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  backToTop() {
+    this.backToTopClicked.emit();
   }
 
-  backToTop() {
-    this.buttonClicked.emit()
+  loadMoreImages() {
+    this.filterParamObject['pageCount'] += 1;
+    this.loadMoreClicked.emit(this.filterParamObject['pageCount']);
   }
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {cloneDeep} from 'lodash';
 import {ImgurDataService} from "../../service/imgur-data.service";
+import {UtilityService} from "../../utils/utility-service";
 
 @Component({
   selector: 'app-gallery',
@@ -9,20 +10,16 @@ import {ImgurDataService} from "../../service/imgur-data.service";
 })
 export class GalleryComponent implements OnInit {
 
-  apiData: any;
-  imagesData: any[];
-
   @Input()
   filterParamObject: any;
+
+  apiData: any;
+  imagesData: any[];
 
   constructor(private accountDataService: ImgurDataService) { }
 
   ngOnInit() {
-    this.accountDataService.apiGetAllImages()
-      .subscribe(imagesDataFromAPI => {
-        this.apiData = cloneDeep(imagesDataFromAPI);
-        this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];
-      });
+    this.getAllImages();
   }
 
   refreshGalleryData(newData){
@@ -30,6 +27,21 @@ export class GalleryComponent implements OnInit {
   }
 
   backToTop() {
+    window.scrollTo(0, 0);
+  }
 
+  loadMoreImages(event) {
+    this.filterParamObject['pageCount'] = event;
+    this.getAllImages();
+  }
+
+  getAllImages() {
+    let newFilterParamObject = UtilityService.convertToLowerCase(this.filterParamObject);
+
+    this.accountDataService.apiGetAllImages(newFilterParamObject)
+      .subscribe(imagesDataFromAPI => {
+        this.apiData = cloneDeep(imagesDataFromAPI);
+        this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];
+      });
   }
 }

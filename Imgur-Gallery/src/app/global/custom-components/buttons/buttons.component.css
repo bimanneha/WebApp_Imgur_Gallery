@@ -1,3 +1,14 @@
-.custom-button {
-  float: right;
+.btn-container {
+  margin:50px 0;
 }
+
+.btn-top {
+  float: right;
+  background-color: #891b55;
+}
+
+.btn-more {
+  float: left;
+  background-color: #891b55;
+}
+

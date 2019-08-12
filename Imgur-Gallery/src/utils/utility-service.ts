@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {lowerCase, cloneDeep} from 'lodash';
+import {cloneDeep, lowerCase} from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,8 @@ import {lowerCase, cloneDeep} from 'lodash';
 
 export class UtilityService {
 
-  public convertToLowerCase(filterParamObject) {
+  static convertToLowerCase(filterParamObject) {
+
     let newFilterParamObject = cloneDeep(filterParamObject);
 
     newFilterParamObject['sectionType'] = lowerCase(filterParamObject['sectionType']);
@@ -16,5 +17,14 @@ export class UtilityService {
     newFilterParamObject['pageCount'] = lowerCase(filterParamObject['pageCount']);
 
     return newFilterParamObject;
+  }
+
+  static concatURL(filterParamObject) {
+
+    let filterString;
+
+    filterString = filterParamObject['sectionType'] + '/' + filterParamObject['sortType'] + '/' + filterParamObject['windowType'] + '/' + filterParamObject['pageCount'];
+
+    return filterString;
   }
 }
