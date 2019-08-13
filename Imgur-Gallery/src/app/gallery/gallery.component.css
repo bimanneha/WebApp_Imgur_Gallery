@@ -10,3 +10,10 @@
   border: 1px groove gray;
   border-radius: 2px;
 }
+
+.p--text {
+  color: ghostwhite;
+  font-size: x-large;
+  text-align: center;
+  padding:10px;
+}

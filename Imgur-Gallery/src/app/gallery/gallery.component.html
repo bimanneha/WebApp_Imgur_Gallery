@@ -4,7 +4,8 @@
 
     <!--Popularity and Window and Sort filters-->
     <div class="col-md-3">
-      <app-image-filter [filterParamObject]="filterParamObject"
+      <app-image-filter [apiData]="apiData"
+                        [filterParamObject]="filterParamObject"
                         (emitFilteredDataToGallery)="refreshGalleryData($event)">
       </app-image-filter>
     </div>
@@ -21,6 +22,10 @@
 
         </div>
 
+      </ng-container>
+
+      <ng-container *ngIf="imagesData && imagesData.length === 0">
+        <p class="p--text">No viral mages found.</p>
       </ng-container>
 
     </div>

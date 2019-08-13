@@ -15,14 +15,16 @@ export class ImageFilterComponent {
   dropDownOptionsForWindow: any[] = ['Day', 'Week', 'Month', 'Year', 'All'];
   dropDownOptionsForSort: any[] = ['Viral', 'Top', 'Time', 'Rising'];
 
-  apiData;
-  imagesData: any[];
+  @Input()
+  apiData: any;
 
   @Input()
   filterParamObject: any[];
 
   @Output()
   emitFilteredDataToGallery = new EventEmitter();
+
+  imagesData: any[];
 
   constructor(private accountDataService: ImgurDataService) { }
 
@@ -60,5 +62,6 @@ export class ImageFilterComponent {
     const isViral = lowerCase(event);
 
     this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
+    this.emitDataToGallery();
   }
 }
