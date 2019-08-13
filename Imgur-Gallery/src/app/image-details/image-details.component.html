@@ -1,0 +1,89 @@
+<!--Header Component including Logo and Name-->
+<app-header></app-header>
+
+<!--Single Image Data-->
+<div class="container-fluid div--container">
+
+  <div class="row">
+
+    <!--  Image Content-->
+    <div class="col-md-7 card div__dark">
+
+      <ng-container *ngIf="imageDetails !== null">
+
+        <ng-container *ngIf="imageDetails.imageType.includes('image')">
+
+          <img class="col-md-12 img--margin"
+               [id]="imageDetails.id"
+               [alt]="imageDetails.id"
+               [src]="imageDetails.link"/>
+
+        </ng-container>
+
+        <ng-container *ngIf="imageDetails.imageType.includes('video')">
+
+          <video class="col-md-12"
+                 [id]="imageDetails.id"
+                 autoplay controls
+                 [loop]="true"
+                 [muted]="isMute">
+
+            <source [src]="imageDetails.link"
+                    type="video/mp4">
+
+          </video>
+
+        </ng-container>
+
+      </ng-container>
+    </div>
+
+    <!--  Image Meta Data-->
+    <div class="col-md-5">
+
+      <table class="table table-bordered table-dark table-striped text-md-center">
+
+        <thead>
+        <tr>
+          <th class="table--header-1">Parameter</th>
+          <th class="table--header-2">Value</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Title</td>
+          <td>{{imageDetails.title || '' }}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>{{imageDetails.description || '' }}</td>
+        </tr>
+        <tr>
+          <td>Up Votes</td>
+          <td>{{imageDetails.ups || '' }}</td>
+        </tr>
+        <tr>
+          <td>Down Votes</td>
+          <td>{{imageDetails.downs || '' }}</td>
+        </tr>
+        <tr>
+          <td>Score</td>
+          <td>{{imageDetails.score || '' }}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!--Back to Top Button Component-->
+  <app-buttons [isMainPage]="false"
+               (backToTopClicked)="backToTop()"></app-buttons>
+
+</div>
+
+<!--Footer Component including Copyright Message-->
+<app-footer></app-footer>

@@ -1,0 +1,19 @@
+.div--container {
+  margin: auto;
+  text-align: center;
+}
+
+.select--color,
+.option--color {
+  background-color: #6a6a6a;
+  color: ghostwhite;
+}
+
+.select--widthColor {
+  width: 95%;
+  background-color: #6a6a6a;
+  color: ghostwhite;
+}
+
+
+

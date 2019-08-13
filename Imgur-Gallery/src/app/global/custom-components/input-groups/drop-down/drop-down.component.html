@@ -1,0 +1,29 @@
+<div class="form-check div--container">
+
+  <div>
+
+    <div class="form-group">
+
+      <label [for]="'drop-down-' + parentName"
+             class="col-md-8 select--color">
+              Select {{parentName}}
+      </label>
+
+      <select [id]="'drop-down-' + parentName"
+              class="form-control select--widthColor"
+              [(ngModel)]="filterParameter"
+              (change)="getFilteredImages()">
+
+        <option class="option--color"
+                *ngFor="let eachOption of dropDownOptions"
+                [value]="eachOption">
+                {{eachOption}}
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</div>

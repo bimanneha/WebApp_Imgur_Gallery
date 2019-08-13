@@ -1,0 +1,19 @@
+.div--color {
+  background-color: #6a6a6a;
+  padding-top: 30px;
+}
+
+.div__imgContainer {
+  margin: 5px;
+  z-index: 10;
+  display: inline-block;
+  border: 1px groove gray;
+  border-radius: 2px;
+}
+
+.p--text {
+  color: ghostwhite;
+  font-size: x-large;
+  text-align: center;
+  padding:10px;
+}

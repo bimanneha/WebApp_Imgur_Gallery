@@ -1,0 +1,42 @@
+<div class="div--position">
+
+  <div class="div--imgBorder">
+
+    <!--Shows Radio Buttons for filtering Images based on Sections: 'Hot', 'Top' and 'User'-->
+    <app-radio [parentName]="'ImgFilter'"
+               [radioOptions]="radioOptionsForSection"
+               (filterTypeChange)="filterBasedOnSection($event)"></app-radio>
+
+  </div>
+
+  <div class="div--imgBorder">
+
+    <br />
+
+    <!--Shows Drop Down for filtering Images based on 'Window' parameters-->
+    <app-drop-down [parentName]="'Window'"
+                   [filterParameter]="filterParamObject['windowType']"
+                   [dropDownOptions]="dropDownOptionsForWindow"
+                   (windowTypeChange)="filterBasedOnWindow($event)"></app-drop-down>
+
+    <br />
+
+    <!--Shows Drop Down for filtering Images based on 'Sort' parameters-->
+    <app-drop-down [parentName]="'Sort'"
+                   [filterParameter]="filterParamObject['sortType']"
+                   [dropDownOptions]="dropDownOptionsForSort"
+                   (sortTypeChange)="filterBasedOnSort($event)"></app-drop-down>
+
+  </div>
+
+  <div class="div--imgBorder">
+
+    <!--Shows Radio Buttons for Including / Excluding Viral Images-->
+    <app-radio [isViral]="(filterParamObject['sortType'] === 'Viral')"
+              [parentName]="'Gallery'"
+               [radioOptions]="radioOptionsForViral"
+               (optionChange)="filterViral($event)"></app-radio>
+  </div>
+  <p class="p--text" *ngIf="(filterParamObject['sortType'] === 'Viral')">Disabled when Sort Type is 'Viral'</p>
+
+</div>

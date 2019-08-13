@@ -1,0 +1,40 @@
+<div class="container-fluid div--color">
+
+  <div class="row">
+
+    <!--Popularity and Window and Sort filters-->
+    <div class="col-md-3">
+      <app-image-filter [apiData]="apiData"
+                        [filterParamObject]="filterParamObject"
+                        (emitFilteredDataToGallery)="refreshGalleryData($event)">
+      </app-image-filter>
+    </div>
+
+    <!--Image and Video Blocks-->
+    <div class="col-md-9">
+
+      <ng-container *ngIf="imagesData && imagesData.length > 0">
+
+        <div class="div__imgContainer" *ngFor="let eachImage of imagesData">
+
+          <app-each-card [eachImage]="eachImage"
+                         [filterParamObject]="filterParamObject"></app-each-card>
+
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="imagesData && imagesData.length === 0">
+        <p class="p--text">No viral mages found.</p>
+      </ng-container>
+
+    </div>
+
+  </div>
+
+  <app-buttons [isMainPage]="true"
+                [filterParamObject]="filterParamObject"
+               (backToTopClicked)="backToTop()"
+               (loadMoreClicked)="loadMoreImages($event)"></app-buttons>
+
+</div>
