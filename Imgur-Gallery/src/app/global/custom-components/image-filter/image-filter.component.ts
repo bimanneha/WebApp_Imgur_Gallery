@@ -65,5 +65,14 @@ export class ImageFilterComponent {
     this.imagesData = dataToFilter.filter(eachImage => (eachImage.in_most_viral === isViral));
 
     this.emitDataToGallery();
+
+   /* let newFilterParamObject = UtilityService.convertToLowerCase(this.filterParamObject);
+
+    this.accountDataService.getAllFilteredImages(newFilterParamObject)
+      .subscribe(imagesDataFromAPI => {
+        this.apiData = cloneDeep(imagesDataFromAPI);
+        this.imagesData = (this.apiData.hasOwnProperty('data')) ? cloneDeep(this.apiData.data) : [];
+        this.emitDataToGallery();
+      });*/
   }
 }

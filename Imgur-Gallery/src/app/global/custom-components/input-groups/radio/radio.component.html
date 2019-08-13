@@ -8,6 +8,7 @@
              *ngFor="let eachOption of radioOptions; let idx = index;">
 
         <input type="radio"
+               [disabled]="isViral"
                class="form-check-input radio--font"
                [checked]="(idx === 0)"
                (click)="funcExcludeViral((idx === 0))"

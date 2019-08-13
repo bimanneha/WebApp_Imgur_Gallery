@@ -11,6 +11,9 @@ export class RadioComponent {
   radioOptions: any[];
 
   @Input()
+  isViral: boolean;
+
+  @Input()
   parentName: string;
 
   @Output()
