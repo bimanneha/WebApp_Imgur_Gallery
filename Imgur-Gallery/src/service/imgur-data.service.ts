@@ -17,7 +17,7 @@ export class ImgurDataService {
   }
 
   static setClientIdHeader(headers: HttpHeaders) {
-    return headers.append('Authorization', 'Client-ID ' + 'XXX');
+    return headers.append('Authorization', 'Client-ID ' + 'b2dd06590440a49');
   }
 
   apiGetAllImages(newFilterParamObject) {
