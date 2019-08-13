@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ImgurDataService} from "../../../../service/imgur-data.service";
-import {cloneDeep, lowerCase} from 'lodash';
+import {cloneDeep} from 'lodash';
 import {UtilityService} from "../../../../utils/utility-service";
 
 @Component({
@@ -59,9 +59,11 @@ export class ImageFilterComponent {
   }
 
   filterViral(event) {
-    const isViral = lowerCase(event);
+    let isViral = event;
+    let dataToFilter = cloneDeep(this.apiData.data);
 
-    this.imagesData = this.apiData.data.filter(eachImage => (eachImage.in_most_viral === isViral));
+    this.imagesData = dataToFilter.filter(eachImage => (eachImage.in_most_viral === isViral));
+
     this.emitDataToGallery();
   }
 }
