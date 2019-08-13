@@ -1,10 +1,10 @@
 <ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
-  <a target="_self" [routerLink]="['/imageDetails', eachImage.id]">
+  <a class="a--font" target="_self" [routerLink]="['/imageDetails', eachImage.id]">
 
-    <figure class="bg-custom">
+    <figure class="fig fig__background">
 
       <ng-container *ngIf="eachImage.images[0].type.includes('image')">
-        <img [id]="eachImage.id" class="img-responsive" [alt]="eachImage.id" [src]="eachImage.images[0].link"/>
+        <img [id]="eachImage.id" class="img--size" [alt]="eachImage.id" [src]="eachImage.images[0].link"/>
       </ng-container>
 
       <ng-container *ngIf="eachImage.images[0].type.includes('video')">
@@ -13,7 +13,7 @@
         </video>
       </ng-container>
 
-      <figcaption class="caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
+      <figcaption class="fig__caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
 
       <br/>
 
@@ -21,8 +21,8 @@
 
   </a>
 
-  <p>Ups : {{eachImage.ups || 0}}</p>
-  <p>Downs : {{eachImage.downs || 0}}</p>
-  <p>Scores : {{eachImage.score || 0}}</p>
+  <p class="p--text">Ups : {{eachImage.ups ||''}}</p>
+  <p class="p--text">Downs : {{eachImage.downs || ''}}</p>
+  <p class="p--text">Scores : {{eachImage.score || ''}}</p>
 </ng-container>
 

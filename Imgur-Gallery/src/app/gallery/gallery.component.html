@@ -1,4 +1,4 @@
-<div class="container-fluid custom-container">
+<div class="container-fluid div--color">
 
   <div class="row">
 
@@ -14,7 +14,7 @@
 
       <ng-container *ngIf="imagesData && imagesData.length > 0">
 
-        <div class="post-container" *ngFor="let eachImage of imagesData">
+        <div class="div__imgContainer" *ngFor="let eachImage of imagesData">
 
           <app-each-card [eachImage]="eachImage"
                          [filterParamObject]="filterParamObject"></app-each-card>

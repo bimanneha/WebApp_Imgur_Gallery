@@ -2,21 +2,35 @@
 <app-header></app-header>
 
 <!--Single Image Data-->
-<div class="container-fluid custom-container">
+<div class="container-fluid div--container">
 
   <div class="row">
+
     <!--  Image Content-->
-    <div class="div-content col-md-7 card bg-custom">
+    <div class="col-md-7 card div__dark">
+
       <ng-container *ngIf="imageDetails !== null">
 
         <ng-container *ngIf="imageDetails.imageType.includes('image')">
-          <img class="col-md-12" [id]="imageDetails.id" [alt]="imageDetails.id" [src]="imageDetails.link"/>
+
+          <img class="col-md-12 img--margin"
+               [id]="imageDetails.id"
+               [alt]="imageDetails.id"
+               [src]="imageDetails.link"/>
+
         </ng-container>
 
         <ng-container *ngIf="imageDetails.imageType.includes('video')">
 
-          <video class="col-md-12" [id]="imageDetails.id" autoplay controls [loop]="true" [muted]="isMute">
-            <source [src]="imageDetails.link" type="video/mp4">
+          <video class="col-md-12"
+                 [id]="imageDetails.id"
+                 autoplay controls
+                 [loop]="true"
+                 [muted]="isMute">
+
+            <source [src]="imageDetails.link"
+                    type="video/mp4">
+
           </video>
 
         </ng-container>
@@ -26,12 +40,13 @@
 
     <!--  Image Meta Data-->
     <div class="col-md-5">
-      <table class="table table-bordered table-dark table-striped custom-table">
+
+      <table class="table table-bordered table-dark table-striped text-md-center">
 
         <thead>
         <tr>
-          <th class="th-parameter">Parameter</th>
-          <th class="th-value">Value</th>
+          <th class="table--header-1">Parameter</th>
+          <th class="table--header-2">Value</th>
         </tr>
         </thead>
 
@@ -64,6 +79,7 @@
 
   </div>
 
+  <!--Back to Top Button Component-->
   <app-buttons [isMainPage]="false"
                (backToTopClicked)="backToTop()"></app-buttons>
 

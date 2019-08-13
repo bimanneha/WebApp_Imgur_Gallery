@@ -1,9 +1,9 @@
-.custom-container {
+.div--color {
   background-color: #6a6a6a;
   padding-top: 30px;
 }
 
-.post-container {
+.div__imgContainer {
   margin: 5px;
   z-index: 10;
   display: inline-block;

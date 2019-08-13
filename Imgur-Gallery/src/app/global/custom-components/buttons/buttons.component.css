@@ -1,16 +1,18 @@
-.btn-container {
+.div--padding {
   padding: 50px 0;
 }
 
-.btn-top {
+.div--loadMoreImages {
+  float: left;
+  background-color: #2d2d2d;
+  background-image: -webkit-linear-gradient(top, #3d3d3d,#272727);
+}
+
+.div--backToTop {
   float: right;
   background-color: #2d2d2d;
   background-image: -webkit-linear-gradient(top, #3d3d3d,#272727);
 }
 
-.btn-more {
-  float: left;
-  background-color: #2d2d2d;
-  background-image: -webkit-linear-gradient(top, #3d3d3d,#272727);
-}
+
 

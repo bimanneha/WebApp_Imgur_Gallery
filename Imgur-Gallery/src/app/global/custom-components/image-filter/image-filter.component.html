@@ -1,20 +1,20 @@
-<div class="div-position">
+<div class="div--position">
 
-  <div class="image-filter-container">
+  <div class="div--imgBorder">
 
     <!--Shows Radio Buttons for Including / Excluding Viral Images-->
     <app-radio [parentName]="'Gallery'" [radioOptions]="radioOptionsForViral" (optionChange)="filterViral($event)"></app-radio>
 
   </div>
 
-  <div class="image-filter-container">
+  <div class="div--imgBorder">
 
     <!--Shows Radio Buttons for filtering Images based on Sections: 'Hot', 'Top' and 'User'-->
     <app-radio [parentName]="'ImgFilter'" [radioOptions]="radioOptionsForSection" (filterTypeChange)="filterBasedOnSection($event)"></app-radio>
 
   </div>
 
-  <div class="image-filter-container">
+  <div class="div--imgBorder">
 
     <br />
 

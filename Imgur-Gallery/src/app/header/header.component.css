@@ -1,16 +1,16 @@
-.div-container {
+.div--container {
   padding: 0;
 }
 
-.center-x {
+.div--textCenter {
   margin: auto;
 }
 
-h2 {
+.div__title {
   font-weight: bolder;
 }
 
-.bk-color {
+.div--color {
   background-color: #2d2d2d;
   background-image: -webkit-linear-gradient(top, #3d3d3d,#272727);
   padding: 35px;
@@ -18,20 +18,7 @@ h2 {
   margin-bottom: 0;
 }
 
-.bor {
-  border: 1px ridge #6a6a6a;
-  height: 5%;
-}
-
-.fr-color {
-  color: lightgrey;
-  font-family: "PT Sans Narrow","PT Sans", "Arial Narrow", Verdana, Geneva, sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: bold;
-}
-
-.fr-color-title {
+.div__text {
   color: ghostwhite;
   font-family: Helvetica,Arial,sans-serif;
   letter-spacing: .6px;

@@ -1,30 +1,19 @@
-.div-container {
+.div--container {
   margin: auto;
   text-align: center;
 }
 
-.radio-label {
-  margin: 20px;
-}
-
-.radio-margin {
-  margin-right: 20px;
-}
-
-.radio-font {
+.select--color,
+.option--color {
+  background-color: #6a6a6a;
   color: ghostwhite;
-  font-size: 16px;
 }
 
-.select-width {
+.select--widthColor {
   width: 95%;
   background-color: #6a6a6a;
   color: ghostwhite;
 }
 
-.select-font, option {
-  background-color: #6a6a6a;
-  color: ghostwhite;
-}
 
 
