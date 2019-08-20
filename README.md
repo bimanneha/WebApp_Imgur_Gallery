@@ -23,7 +23,7 @@ Steps for running the application :
 
 Technical Detals with Versions :
 
-1) Angular - 8.2.0 
+1) Angular CLI - 8.0.6
 2) Node - 10.16.0
 3) Bootstrap - 4.3.1
 4) Lodash - 4.17.15
