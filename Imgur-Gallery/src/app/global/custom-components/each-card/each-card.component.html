@@ -1,0 +1,28 @@
+<ng-container *ngIf="eachImage.images && eachImage.images.length > 0">
+  <a class="a--font" target="_self" [routerLink]="['/imageDetails', eachImage.id]">
+
+    <figure class="fig fig__background">
+
+      <ng-container *ngIf="eachImage.images[0].type.includes('image')">
+        <img [id]="eachImage.id" class="img--size" [alt]="eachImage.id" [src]="eachImage.images[0].link"/>
+      </ng-container>
+
+      <ng-container *ngIf="eachImage.images[0].type.includes('video')">
+        <video [id]="eachImage.id" width="240" height="200" autoplay controls [loop]="true" [muted]="isMute">
+          <source [src]="eachImage.images[0].link" type="video/mp4">
+        </video>
+      </ng-container>
+
+      <figcaption class="fig__caption" *ngIf="eachImage.title !== null">{{eachImage.title}}</figcaption>
+
+      <br/>
+
+    </figure>
+
+  </a>
+
+  <p class="p--text">Ups : {{eachImage.ups ||''}}</p>
+  <p class="p--text">Downs : {{eachImage.downs || ''}}</p>
+  <p class="p--text">Scores : {{eachImage.score || ''}}</p>
+</ng-container>
+

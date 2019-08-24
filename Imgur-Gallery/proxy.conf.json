@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://api.imgur.com/3/",
+    "secure": false
+  }
+}
