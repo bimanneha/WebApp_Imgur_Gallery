@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "angular-cli-ghpages": "^0.6.0-rc.2",
     "bootstrap": "^4.3.1",
     "es6": "0.0.7",
     "jquery": "^3.4.1",
