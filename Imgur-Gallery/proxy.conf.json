@@ -1,0 +1,12 @@
+{
+  "/api/*": {
+    "target": "https://api.imgur.com/3/gallery/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "headers": {"Authorization": "Client-ID b2dd06590440a49"}
+  }
+}
