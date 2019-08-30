@@ -19,6 +19,9 @@ Steps for running the application :
 3) Run 'npm start' command to run the application.
 4) http://localhost:4200/ is the link which you can use in your browser.
 
+The application is published on gh-pages and is accessible to everyone on the below mentioned link:
+https://bimanneha.github.io/imageGallery/home
+
 -------------------------------------------------------------------------------------------------------
 
 Technical Detals with Versions :
